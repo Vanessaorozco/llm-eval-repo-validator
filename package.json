@@ -1,0 +1,13 @@
+{
+  "name": "llm-eval-repo-validator",
+  "version": "1.0.0",
+  "description": "SWE-bench-style repository task validation and LLM patch evaluation harness. Zero dependencies.",
+  "type": "module",
+  "engines": { "node": ">=20.10" },
+  "scripts": {
+    "test": "node --test test/unit.test.js",
+    "validate": "node src/validate.js tasks",
+    "eval": "node src/eval.js tasks"
+  },
+  "license": "MIT"
+}
