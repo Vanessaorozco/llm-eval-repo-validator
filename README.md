@@ -36,6 +36,14 @@ Two baselines keep the harness honest:
 - --model gold — oracle (reference patch). Must score 100%, otherwise the harness or the task is broken.
 - --model empty — null baseline. Must score 0%.
 
+## Included tasks
+
+| Task | Repo | What it tests |
+|---|---|---|
+| calc-divide-zero | local fixture | Minimal smoke task: hidden test patch adds the failing tests. |
+| biblioteca-reset-stale-refs | [proyecto02-biblioteca](https://github.com/Vanessaorozco/proyecto02-biblioteca) (Express + Jest) | **Real bug mined from an existing repo.** db.reset() reassigned the in-memory arrays, so module.exports kept stale references and GET /api/books returned outdated results. Two existing Jest tests fail at the base commit (FAIL_TO_PASS); six others guard against regressions (PASS_TO_PASS). Cloned at a pinned commit, dependencies installed via setup_cmd, individual Jest tests selected by name. |
+| calc-mislabeled-tests (examples/) | local fixture | Intentionally broken task: the validator must reject it. |
+
 ## Usage
 
 Requires Node 20.10+ and git.
