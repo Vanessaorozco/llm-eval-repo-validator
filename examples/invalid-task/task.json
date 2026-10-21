@@ -1,0 +1,11 @@
+{
+  "id": "calc-mislabeled-tests",
+  "repo": "../../fixtures/calc",
+  "problem_statement": "Same issue as calc-divide-zero, but test/add.test.js is wrongly labeled as FAIL_TO_PASS.",
+  "context_files": ["src/calc.js"],
+  "gold_patch_file": "../../tasks/calc-divide-zero/gold.patch",
+  "test_patch_file": "../../tasks/calc-divide-zero/test.patch",
+  "test_cmd": "node --test {test}",
+  "FAIL_TO_PASS": ["test/add.test.js", "test/divide.test.js"],
+  "PASS_TO_PASS": []
+}
