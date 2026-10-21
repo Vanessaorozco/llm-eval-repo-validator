@@ -1,0 +1,23 @@
+{
+  "id": "biblioteca-reset-stale-refs",
+  "repo": "https://github.com/Vanessaorozco/proyecto02-biblioteca.git",
+  "base_commit": "e41b7f4c464535c3defd38da38b117384ae15bfe",
+  "setup_cmd": "npm install --no-audit --no-fund --loglevel=error",
+  "problem_statement": "GET /api/books returns stale or empty results after the in-memory database is reset with db.reset(). Books created after a reset never appear in the listing (and books from before the reset still do), while GET /api/books/:id finds them correctly. The listing must always reflect the current contents of the database.",
+  "context_files": ["src/db.js", "src/controllers/bookController.js"],
+  "gold_patch_file": "gold.patch",
+  "test_cmd": "npx jest --runInBand -t \"^{test}$\"",
+  "test_timeout_ms": 180000,
+  "FAIL_TO_PASS": [
+    "Controlador de libros listar libros solo devuelve nombres y excluye inhabilitados por defecto",
+    "Controlador de libros listar libros respeta filtro por genero"
+  ],
+  "PASS_TO_PASS": [
+    "Controlador de libros crea libro con permiso",
+    "Controlador de libros obtiene un libro por id",
+    "Controlador de libros puede reservar libro disponible",
+    "Controlador de libros historial de libro funciona",
+    "Controlador de usuarios login exitoso devuelve token",
+    "Controlador de usuarios no permite actualizar otro usuario sin permiso"
+  ]
+}

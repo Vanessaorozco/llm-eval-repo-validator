@@ -1,0 +1,31 @@
+diff --git a/src/db.js b/src/db.js
+index 2e64884..30c9ffa 100644
+--- a/src/db.js
++++ b/src/db.js
+@@ -1,18 +1,20 @@
+ // "Base de datos" muy simple en memoria.
+ // Para el proyecto real se podría cambiar por una BD real (MySQL, Postgres, etc).
+ 
+-let users = [];
+-let books = [];
+-let reservations = [];
++const users = [];
++const books = [];
++const reservations = [];
+ 
+ let nextUserId = 1;
+ let nextBookId = 1;
+ let nextReservationId = 1;
+ 
+ function reset() {
+-  users = [];
+-  books = [];
+-  reservations = [];
++  // Empty the arrays in place: module.exports holds references to them,
++  // so reassigning would leave db.users/db.books/db.reservations stale.
++  users.length = 0;
++  books.length = 0;
++  reservations.length = 0;
+   nextUserId = 1;
+   nextBookId = 1;
+   nextReservationId = 1;
