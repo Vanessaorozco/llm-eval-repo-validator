@@ -1,0 +1,16 @@
+diff --git a/test/divide.test.js b/test/divide.test.js
+new file mode 100644
+--- /dev/null
++++ b/test/divide.test.js
+@@ -0,0 +1,11 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { divide } from '../src/calc.js';
++
++test('divide returns the quotient', () => {
++  assert.equal(divide(10, 2), 5);
++});
++
++test('divide throws on division by zero', () => {
++  assert.throws(() => divide(1, 0), RangeError);
++});

@@ -1,0 +1,10 @@
+diff --git a/src/calc.js b/src/calc.js
+--- a/src/calc.js
++++ b/src/calc.js
+@@ -5,3 +5,6 @@
+ export function divide(a, b) {
++  if (b === 0) {
++    throw new RangeError('Division by zero');
++  }
+   return a / b;
+ }
